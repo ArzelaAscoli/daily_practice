@@ -12,5 +12,18 @@ def print_hi(name):
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     print_hi('PyCharm')
+    m = 9
+    matrix = [([0]*m) for i in range(m)]
 
+    for i in range(1, m-1):
+        for j in range(i+1, m):
+            matrix[i][j] = i & j
+
+    print(matrix)
+    print(sorted(matrix))
+    for i in range(m):
+        matrix[i] = sorted(matrix[i])
+    print(matrix)
+    if 4 in matrix[4]:
+        print("check")
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

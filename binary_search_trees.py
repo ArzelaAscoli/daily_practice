@@ -27,15 +27,29 @@ class Solution:
             else:
                 return 0
 
+    def level_order(self, root):
+        order = list()
+        order.append(root)
+
+        for items in order:
+            if items.left is not None:
+                order.append(items.left)
+            if items.right is not None:
+                order.append(items.right)
+
+            print(items.data, end=" ")
+
 
 if __name__ == '__main__':
 
     print("Input all data to create BST (ex: 3 5 2 1 4 6 7):")
-    allData = list(map(int, input().strip().split(' ')))
-
+    # allData = list(map(int, input().strip().split(' ')))
+    allData = [3, 5, 2, 1, 4, 6, 7]
     myTree = Solution()
     nodeRoot = None
     for item in allData:
         nodeRoot = myTree.insert(nodeRoot, item)
     height = myTree.get_height(nodeRoot)
     print("Height of BST:", height)
+    print("Level order of BST:", height)
+    myTree.level_order(nodeRoot)
